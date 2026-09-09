@@ -1,0 +1,22 @@
+package com.rest;
+import static io.restassured.RestAssured.*;
+	import static org.hamcrest.Matchers.*;
+public class RecordValidation {
+
+		public static void main(String[] args) {
+		
+			 given()
+			.when()
+			.get("http://localhost:3000/api/students")
+			.then()
+			  .statusCode(200)
+			  .body("data[0].name", equalTo("Karthik"))
+			  .body("data[1].email", equalTo("rahul@example.com"))
+			  
+			 
+	          .log().all();
+		      }
+
+	}
+
+
