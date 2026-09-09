@@ -1,0 +1,26 @@
+package com.rest;
+	import static io.restassured.RestAssured.*;
+public class CeateRecord {
+	
+
+
+
+	    public static void main(String[] args) {
+
+	        given()
+	            .header("Content-Type", "application/json")
+	            .body("{"
+	                    + "\"name\":\"Arun\","
+	                    + "\"email\":\"arun@gmail.com\","
+	                    + "\"course\":\"Java\","
+	                    + "\"marks\":85"
+	                    + "}")
+
+	        .when()
+	            .post("http://localhost:3000/api/students")
+
+	        .then()
+	            .statusCode(201);
+	    }
+	}
+
