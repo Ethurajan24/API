@@ -1,0 +1,50 @@
+package com.rest;
+	import static io.restassured.RestAssured.*;
+		import io.restassured.response.Response;
+public class GetSingleRecords {
+
+	public static void main(String[] args) {
+		
+				    	
+
+		    	   Response response =
+
+		    	            given()
+
+		    	            .when()
+		    	                .get(
+		    	                    "http://localhost:3000/api/students"
+		    	                );
+
+
+		    	        int studentId =
+		    	          response.jsonPath()
+		    	                    .getInt("data[2].id");
+		    	        String studentname =
+		        	            response.jsonPath()
+		        	                    .getString("data[2].name");
+		    	        String studentname2 =
+		        	            response.jsonPath()
+		        	                    .getString("data[2].email");
+		    	        String studentname3 =
+		        	            response.jsonPath()
+		        	                    .getString("data[2].course");
+		    	        int studentname4 =
+		        	            response.jsonPath()
+		        	                    .getInt("data[2].score");
+		    	        System.out.println(
+		    	            "Student Record: "
+		    	            + studentId +"       "
+		    	            +studentname
+		    	            +"       "
+		    	            +studentname2 +"    " + studentname2 +"    "
+		    	            +studentname3 +"  " 	+ studentname4	    	        );
+
+		    }
+	
+
+
+
+	}
+
+
